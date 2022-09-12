@@ -19,6 +19,7 @@ export const generateGraphqlInput = (input) => {
 }
 
 const graphqlCaller = async ({ shop, accessToken, query, variables }) => {
+  console.log('🚀🚀 ~ graphqlCaller ~ query', query)
   try {
     validateParams({ shop, accessToken, query })
 

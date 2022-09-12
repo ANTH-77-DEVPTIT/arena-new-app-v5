@@ -128,6 +128,10 @@ const create = async ({ shop, accessToken, input }) => {
         product {
           ${FIELDS}
         }
+        shop {
+          name
+          email
+        }
         userErrors {
           field
           message
