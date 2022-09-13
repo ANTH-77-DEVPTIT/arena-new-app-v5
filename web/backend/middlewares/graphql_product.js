@@ -9,6 +9,7 @@ const FIELDS = `
   descriptionHtml
   vendor
   productType
+  status
   tags
   templateSuffix
   publishedAt
@@ -68,6 +69,7 @@ const getAll = async ({ shop, accessToken, count }) => {
 }
 
 const find = async ({ shop, accessToken, first, pageInfo }) => {
+  console.log('🚀 ~ file: graphql_product.js ~ line 72 ~ find ~ pageInfo', pageInfo)
   try {
     let _first = parseInt(first) >= 1 ? parseInt(first) : 20
     let _pageInfo = pageInfo ? `, after: "${pageInfo}"` : ``

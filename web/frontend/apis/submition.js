@@ -1,8 +1,8 @@
 import apiCaller from '../helpers/apiCaller'
 
 const SubmitionApi = {
-  submit: async () => {
-    return await apiCaller(`/api/submition`)
+  submit: async (query) => {
+    return await apiCaller(`/api/submition${query || ''}`)
   },
 }
 

@@ -21,6 +21,10 @@ export default function App(props) {
             pathname: '/products',
           },
           {
+            label: 'Products1',
+            pathname: '/products1',
+          },
+          {
             label: 'Test API',
             pathname: '/test_api',
           },

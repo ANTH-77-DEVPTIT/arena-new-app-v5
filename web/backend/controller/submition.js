@@ -45,7 +45,6 @@ export default {
        * const variables = {
        *    id: "grid://shopi...."
        * }
-       *
        */
 
       //Full 5 chức năng của graphql
@@ -167,12 +166,13 @@ export default {
       //     "gid://shopify/Product/7824038494462",
       //     "gid://shopify/Product/7826134204670",
       //     "gid://shopify/Product/7834737737982"]
+      console.log('hihi')
 
       // }
-
       const data = await GraphqlProductMiddleware.find({
         shop,
         accessToken,
+        ...req.query,
         // id: 'gid://shopify/Product/7826014994686',
       })
 

@@ -43,6 +43,7 @@ const count = async ({ shop, accessToken }) => {
 }
 
 const find = async ({ shop, accessToken, limit, pageInfo, order }) => {
+  console.log('🚀 ~ file: product.js ~ line 46 ~ find ~ pageInfo', pageInfo)
   try {
     let _limit = limit ? parseInt(limit) : 20
 
