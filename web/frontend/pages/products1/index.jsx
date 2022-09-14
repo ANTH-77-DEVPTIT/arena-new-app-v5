@@ -1,7 +1,7 @@
 import { Card, Pagination, Stack } from '@shopify/polaris'
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import SubmitionApi from '../../apis/submition.js'
+import ProductGraphQLApi from '../../apis/product_graphql.js'
 import AppHeader from '../../components/AppHeader/index.jsx'
 import CreateForm from './CreateForm.jsx'
 import Table from './Table'
@@ -18,7 +18,7 @@ function Products1(props) {
   const getProducts1 = async (query) => {
     try {
       actions.showAppLoading()
-      let res = await SubmitionApi.submit(query)
+      let res = await ProductGraphQLApi.find(query)
 
       console.log(res.data)
       setProducts(res.data)
@@ -69,7 +69,7 @@ function Products1(props) {
           onEdit={(item) => setCreated(item)}
           onDelete={(item) => setDeleted(item)}
         />
-        {products?.edges.length > 0 && (
+        {products?.edges?.length > 0 && (
           <Card.Section>
             <Stack distribution="center">
               <Stack.Item>

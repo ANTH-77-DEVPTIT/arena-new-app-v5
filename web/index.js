@@ -25,6 +25,7 @@ import storeSettingRoute from './backend/routes/admin/store_setting.js'
 import productRoute from './backend/routes/admin/product.js'
 import billingRoute from './backend/routes/admin/billing.js'
 import submitionRoute from './backend/routes/admin/submition.js'
+import productsGraphQLRoute from './backend/routes/admin/product_graphQL.js'
 
 // console.log('WEB ENV')
 // console.log('| NODE_ENV :>>', process.env.NODE_ENV)
@@ -158,6 +159,7 @@ export async function createServer(
     productRoute(app)
     billingRoute(app)
     submitionRoute(app)
+    productsGraphQLRoute(app)
     // -------------------------------------------
 
     // app.get('/api/products/count', async (req, res) => {

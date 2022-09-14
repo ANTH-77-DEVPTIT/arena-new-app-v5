@@ -166,15 +166,26 @@ export default {
       //     "gid://shopify/Product/7824038494462",
       //     "gid://shopify/Product/7826134204670",
       //     "gid://shopify/Product/7834737737982"]
-      console.log('hihi')
 
-      // }
-      const data = await GraphqlProductMiddleware.find({
+      let input = {
+        title: 'san pham moi',
+        vendor: 'THA',
+        descriptionHtml: 'hihi cac ban day la body html',
+      }
+
+      const data = await GraphqlProductMiddleware.create({
         shop,
         accessToken,
-        ...req.query,
+        // ...req.query,
+        input,
         // id: 'gid://shopify/Product/7826014994686',
       })
+
+      // const data = await GraphqlProductMiddleware.findById({
+      //   shop,
+      //   accessToken,
+      //   id: 'gid://shopify/Product/7858849054974',
+      // })
 
       return ResponseHandler.success(res, data)
     } catch (error) {

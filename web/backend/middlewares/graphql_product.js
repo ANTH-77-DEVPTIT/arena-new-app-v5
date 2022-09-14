@@ -69,21 +69,23 @@ const getAll = async ({ shop, accessToken, count }) => {
 }
 
 const find = async ({ shop, accessToken, first, pageInfo }) => {
-  console.log('🚀 ~ file: graphql_product.js ~ line 72 ~ find ~ pageInfo', pageInfo)
   try {
     let _first = parseInt(first) >= 1 ? parseInt(first) : 20
     let _pageInfo = pageInfo ? `, after: "${pageInfo}"` : ``
 
+    // nodes {
+    //   ${FIELDS}
+    // }
     let query = `
-    {
-      products (first: ${_first}${_pageInfo}) {
-        edges {
-          node {
-            ${FIELDS}
+      {
+        products (first: ${_first}${_pageInfo}) {
+          edges {
+            node {
+              ${FIELDS}
+            }
           }
-        }
-        pageInfo {
-          hasNextPage
+          pageInfo {
+            hasNextPage
           hasPreviousPage
           startCursor
           endCursor
@@ -124,6 +126,7 @@ const findById = async ({ shop, accessToken, id }) => {
 }
 
 const create = async ({ shop, accessToken, input }) => {
+  console.log('input', input)
   try {
     let query = `mutation {
       productCreate(input: ${generateGraphqlInput(input)}) {
